@@ -8,11 +8,11 @@
 import Foundation
 
 struct Game {
-    var target: Int = 42
-    var score: Int = 0
-    var round: Int = 1
+    var target = 42
+    var score = 0
+    var round = 1
     
     func points(sliderValue: Int) -> Int {
-        return sliderValue
+        100 - abs(self.target - sliderValue)
     }
 }
