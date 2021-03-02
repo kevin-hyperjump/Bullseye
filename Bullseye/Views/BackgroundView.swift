@@ -17,10 +17,7 @@ struct BackgroundView: View {
             BottomView(game: $game)
         }
         .padding()
-        .background(
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
-        )
+        .background(RingsView())
     }
 }
 
@@ -29,7 +26,12 @@ struct TopView: View {
     
     var body: some View {
         HStack {
-            RoundedImageViewFilled(systemName: "arrow.counterclockwise")
+            Button(action: {
+                game.restart()
+            }, label: {
+                RoundedImageViewFilled(systemName: "arrow.counterclockwise")
+            })
+            
             Spacer()
             RoundedImageViewStroked(systemName: "list.dash")
         }
@@ -60,7 +62,34 @@ struct BottomView: View {
     }
 }
 
-
+struct RingsView: View {
+    var body: some View {
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            
+            ForEach(1..<5) { ring in
+                let size = CGFloat(ring * 100)
+                
+                Circle()
+                    .stroke(lineWidth: 20.0)
+                    .fill(
+                        RadialGradient(
+                            gradient: Gradient(
+                                colors: [
+                                    Color("RingsColor").opacity(0.3 * 0.8),
+                                    Color("RingsColor").opacity(0.3 * 0.8)
+                                ]),
+                            center: .center,
+                            startRadius: 100,
+                            endRadius: 300
+                        )
+                    )
+                    .frame(width: size, height: size)
+            }
+        }
+    }
+}
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
