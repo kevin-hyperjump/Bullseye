@@ -12,6 +12,7 @@
 		0A1224AF25EE6C8300C9D795 /* RoundViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1224AE25EE6C8300C9D795 /* RoundViews.swift */; };
 		0A1224B325EE705C00C9D795 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1224B225EE705C00C9D795 /* BackgroundView.swift */; };
 		0A1224B725EF4C7100C9D795 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1224B625EF4C7100C9D795 /* PointsView.swift */; };
+		0A1224BB25EF542A00C9D795 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1224BA25EF542A00C9D795 /* Models.swift */; };
 		0A6F90FC25E8A07800E89289 /* BullseyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F90FB25E8A07800E89289 /* BullseyeApp.swift */; };
 		0A6F90FE25E8A07800E89289 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F90FD25E8A07800E89289 /* ContentView.swift */; };
 		0A6F910025E8A07C00E89289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A6F90FF25E8A07C00E89289 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		0A1224AE25EE6C8300C9D795 /* RoundViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViews.swift; sourceTree = "<group>"; };
 		0A1224B225EE705C00C9D795 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		0A1224B625EF4C7100C9D795 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
+		0A1224BA25EF542A00C9D795 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0A6F90F825E8A07800E89289 /* Bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6F90FB25E8A07800E89289 /* BullseyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeApp.swift; sourceTree = "<group>"; };
 		0A6F90FD25E8A07800E89289 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0A6F911025E94FCF00E89289 /* Game.swift */,
+				0A1224BA25EF542A00C9D795 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				0A1224B725EF4C7100C9D795 /* PointsView.swift in Sources */,
 				0A1224B325EE705C00C9D795 /* BackgroundView.swift in Sources */,
 				0A6F911125E94FCF00E89289 /* Game.swift in Sources */,
+				0A1224BB25EF542A00C9D795 /* Models.swift in Sources */,
 				0A6F90FC25E8A07800E89289 /* BullseyeApp.swift in Sources */,
 				0A1224AF25EE6C8300C9D795 /* RoundViews.swift in Sources */,
 			);
