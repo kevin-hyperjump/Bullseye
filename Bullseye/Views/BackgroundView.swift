@@ -29,11 +29,12 @@ struct TopView: View {
             Button(action: {
                 game.restart()
             }, label: {
-                RoundedImageViewFilled(systemName: "arrow.counterclockwise")
+                RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             })
             
             Spacer()
-            RoundedImageViewStroked(systemName: "list.dash")
+            
+            RoundedImageViewFilled(systemName: "list.dash")
         }
     }
 }
@@ -63,6 +64,8 @@ struct BottomView: View {
 }
 
 struct RingsView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack {
             Color("BackgroundColor")
@@ -70,6 +73,7 @@ struct RingsView: View {
             
             ForEach(1..<5) { ring in
                 let size = CGFloat(ring * 100)
+                let opacity = colorScheme == .dark ? 0.1 : 0.3
                 
                 Circle()
                     .stroke(lineWidth: 20.0)
@@ -77,8 +81,8 @@ struct RingsView: View {
                         RadialGradient(
                             gradient: Gradient(
                                 colors: [
-                                    Color("RingsColor").opacity(0.3 * 0.8),
-                                    Color("RingsColor").opacity(0.3 * 0.8)
+                                    Color("RingsColor").opacity(opacity),
+                                    Color("RingsColor").opacity(0)
                                 ]),
                             center: .center,
                             startRadius: 100,

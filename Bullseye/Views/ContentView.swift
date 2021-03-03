@@ -19,8 +19,20 @@ struct ContentView: View {
             
             VStack {
                 InstructionsView(game: $game)
+                    .padding(.bottom, alertIsVisible ? 0 : 100)
+                
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
+                } else {
+                    HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
+                }
+            }
+            
+            if !alertIsVisible {
                 SliderView(sliderValue: $sliderValue)
-                HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                    .transition(.scale)
             }
         }
     }
@@ -60,7 +72,9 @@ struct HitMeButton: View {
     
     var body: some View {
         Button(action: {
-            self.alertIsVisible = true
+            withAnimation {
+                alertIsVisible = true
+            }
         }) {
             Text("Hit Me".uppercased())
                 .bold()
@@ -79,30 +93,16 @@ struct HitMeButton: View {
             RoundedRectangle(cornerRadius: 21.0)
                 .strokeBorder(Color.white, lineWidth: 2.0)
         )
-        .alert(isPresented: $alertIsVisible) {
-            let roundedValue = Int(self.sliderValue.rounded())
-            let points = game.points(sliderValue: roundedValue)
-              
-            return Alert(
-                title: Text("Hello There!"),
-                message: Text("The slider's value is \(roundedValue).\n You scored \(points)"),
-                dismissButton: .default(Text("Awesome!")) {
-                    game.startNewRound(points: points)
-                }
-            )
-        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.light)
         ContentView()
             .preferredColorScheme(.dark)
         ContentView()
             .previewLayout(.fixed(width: 568, height: 320))
-            .preferredColorScheme(.light)
         ContentView()
             .previewLayout(.fixed(width: 568, height: 320))
             .preferredColorScheme(.dark)
